@@ -1,323 +1,307 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="th">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master SOP - Premium Scented Stone</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+            background-color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .animate-spin-slow {
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .phase-content {
+            display: none;
+        }
+        .phase-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sidebar-btn.active {
+            background-color: white;
+            box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);
+            border-right: 4px solid #2563eb;
+            color: #0f172a;
+            transform: translateX(4px);
+        }
+        /* สำหรับหน้าจอมือถือ */
+        @media (max-width: 768px) {
+            .sidebar-btn.active {
+                border-right: none;
+                border-bottom: 4px solid #2563eb;
+                transform: translateY(-2px);
+            }
+        }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="th"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Master SOP - Premium Scented Stone&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS via CDN --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Noto+Sans+Thai:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', 'Noto Sans Thai', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>-webkit-tap-highlight-color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.animate-spin-slow {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: spin 10s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes spin {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { transform: rotate(0deg); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { transform: rotate(360deg); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.phase-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.phase-content.active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.4s ease-out;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(8px); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.sidebar-btn.active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-right: 4px solid #2563eb;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #0f172a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(4px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* สำหรับหน้าจอมือถือ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.sidebar-btn.active {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-right: none;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-bottom: 4px solid #2563eb;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="p-4 md:p-8"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-5xl mx-auto mb-8 text-center md:text-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-3xl font-extrabold text-slate-900 tracking-tight uppercase"&gt;Master SOP&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-slate-500 font-medium"&gt;การผลิตถุงหินหอมระดับพรีเมียม (Premium Scented Stone Sachet)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 items-start"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Navigation Sidebar --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="md:col-span-4 flex md:flex-col overflow-x-auto md:overflow-visible gap-2 pb-4 md:pb-0" id="sidebar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showPhase(0)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500 active" id="btn-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="icon-box p-2 rounded-lg bg-blue-600 text-white"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;polygon points="12 2 2 7 12 12 22 7 12 2"&gt;&lt;/polygon&gt;&lt;polyline points="2 17 12 22 22 17"&gt;&lt;/polyline&gt;&lt;polyline points="2 12 12 17 22 12"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-bold text-sm"&gt;Phase 1: คัดสรรวัตถุดิบ&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showPhase(1)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"&gt;&lt;/path&gt;&lt;path d="M9.6 4.6A2 2 0 1 1 11 8H2"&gt;&lt;/path&gt;&lt;path d="M12.6 19.4A2 2 0 1 0 14 16H2"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-bold text-sm"&gt;Phase 2 &amp; 3: เตรียมผิว &amp; คุมสภาพ&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showPhase(2)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-bold text-sm"&gt;Phase 4 &amp; 5: สูตรกลิ่น &amp; Vacuum&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showPhase(3)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"&gt;&lt;/path&gt;&lt;polyline points="22 4 12 14.01 9 11.01"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-bold text-sm"&gt;Phase 6 - 8: การบ่ม &amp; QC&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:block mt-8 p-6 bg-indigo-600 rounded-2xl text-white shadow-xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-bold mb-2"&gt;หัวใจของพรีเมียม&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="text-xs space-y-3 opacity-90"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-1.5 h-1.5 rounded-full bg-white"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>ไม่ล้างน้ำ = โครงสร้างหินคงเดิม</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-1.5 h-1.5 rounded-full bg-white"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>คุมความชื้น = อายุการใช้งานนาน</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-1.5 h-1.5 rounded-full bg-white"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Vacuum + Curing = ความหรูหรา</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Content Area --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="md:col-span-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white rounded-2xl shadow-sm border p-6 min-h-[400px]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Phase 1 Content --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="phase-0" class="phase-content active"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-between mb-6 border-b pb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-bold text-slate-800"&gt;Phase 1: คัดสรรวัตถุดิบ&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-tighter"&gt;Phase 1 of 8&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-4 bg-gray-50 rounded-xl border-l-4 border-blue-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-blue-800"&gt;หินภูเขาไฟ (45%)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-600 font-semibold"&gt;10-20mm สีเทาดำ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-[11px] text-gray-500 mt-1 italic"&gt;ดูดกลิ่นลึกและไม่อุ้มน้ำ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-4 bg-gray-50 rounded-xl border-l-4 border-amber-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-amber-800"&gt;เซรามิกพรุน (20%)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-600 font-semibold"&gt;Unglazed 100%&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-[11px] text-gray-500 mt-1 italic"&gt;ปล่อยกลิ่นนุ่มนวล ไม่ฉุนพุ่ง&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-4 bg-gray-50 rounded-xl border-l-4 border-emerald-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-emerald-800"&gt;แร่ Zeolite (5%)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-600 font-semibold"&gt;Natural Clinoptilolite&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-[11px] text-gray-500 mt-1 italic"&gt;ช่วยกักเก็บ Base Note&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-blue-50 p-4 rounded-lg flex items-start gap-3 mt-4 border border-blue-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg class="text-blue-600 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"&gt;&lt;/path&gt;&lt;polyline points="22 4 12 14.01 9 11.01"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-blue-900 text-sm"&gt;เกณฑ์การตัดสิน (Premium Logic)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-blue-700"&gt;ไม่มีกลิ่นพื้นฐาน | มีรูพรุนจริง | ไร้ความชื้นสะสม&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Phase 2 &amp; 3 Content --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="phase-1" class="phase-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-between mb-6 border-b pb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-bold text-slate-800"&gt;Phase 2 &amp; 3: เตรียมผิว &amp; คุมสภาพ&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-red-50 p-4 rounded-lg border-2 border-red-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-bold text-red-800 mb-2 flex items-center gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>ข้อกำหนดสำคัญ: ห้ามใช้น้ำทุกกรณี</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-white p-3 rounded-lg shadow-sm border border-red-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-bold text-gray-800 block mb-1 underline"&gt;1. การร่อน &amp; เป่าลม&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>ขจัดฝุ่นผงด้วย Air Blower เพื่อไม่ให้รูพรุนอุดตันจากความชื้น</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-white p-3 rounded-lg shadow-sm border border-red-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-bold text-gray-800 block mb-1 underline"&gt;2. การไล่ความชื้น&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>อบลมร้อน 90-110°C นาน 2-3 ชม. เพื่อรีดอากาศและความชื้น</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-slate-900 text-white p-5 rounded-xl flex items-center justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[10px] opacity-60 uppercase tracking-widest font-bold"&gt;ความชื้นสัมพัทธ์&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-2xl font-black"&gt;45% - 55%&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-orange-600 text-white p-5 rounded-xl flex items-center justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[10px] opacity-60 uppercase tracking-widest font-bold"&gt;อุณหภูมิห้อง&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-2xl font-black"&gt;24°C - 28°C&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Phase 4 &amp; 5 Content --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="phase-2" class="phase-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-between mb-6 border-b pb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-bold text-slate-800"&gt;Phase 4 &amp; 5: สูตรกลิ่น &amp; Vacuum&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 border rounded-xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-bold text-gray-800 mb-4 border-b pb-2 text-sm"&gt;สัดส่วนสูตร Liquid (30%)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden flex"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="h-full bg-indigo-600 w-[66%]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="h-full bg-indigo-400 w-[23%]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="h-full bg-indigo-300 w-[11%]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="grid grid-cols-3 gap-1 text-[9px] text-center font-black text-indigo-900"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;FRAGRANCE 20%&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;FIXATIVE 7%&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;CARRIER 3%&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mt-4 bg-indigo-50 p-3 rounded-lg text-[11px] text-indigo-900 border border-indigo-100 italic"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;💡 Pro Tip:&lt;/strong&gt; การเลือก Fixative โมเลกุลใหญ่คือหัวใจของการหอมนาน 8 สัปดาห์</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg border border-slate-700"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-bold text-blue-400 mb-3 flex items-center gap-2 text-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg class="animate-spin-slow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;circle cx="12" cy="12" r="3"&gt;&lt;/circle&gt;&lt;path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>Vacuum Infusion</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;ul class="text-[12px] space-y-3 font-medium"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;li class="flex items-center gap-2"&gt;&lt;span class="w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px]"&gt;1&lt;/span&gt; แรงดันลบ -0.85 ถึง -0.95 bar&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;li class="flex items-center gap-2"&gt;&lt;span class="w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px]"&gt;2&lt;/span&gt; อัดกลิ่นทิ้งไว้ 30 นาที&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mt-5 pt-3 border-t border-slate-700 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[11px] font-black text-blue-400 uppercase tracking-widest"&gt;เพิ่มประสิทธิภาพ x3 เท่า&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Phase 6 - 8 Content --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="phase-3" class="phase-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-between mb-6 border-b pb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-bold text-slate-800"&gt;Phase 6 - 8: การบ่ม &amp; QC&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-amber-50 p-5 rounded-xl border border-amber-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-amber-900 text-sm mb-2 uppercase"&gt;Curing (การบ่ม)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-amber-800 leading-relaxed font-medium italic"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>"ห้ามเปิดถังบ่ม 10-14 วัน เพื่อให้ Base note ยึดเกาะโครงสร้างหินได้เสถียรที่สุด"</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-emerald-900 text-sm mb-2 uppercase"&gt;Final QC&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;ul class="text-[11px] text-emerald-800 space-y-2 font-bold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;div class="w-1 h-1 bg-emerald-500 rounded-full"&gt;&lt;/div&gt; Visual: สีสม่ำเสมอ ไร้ฝุ่นผง&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;div class="w-1 h-1 bg-emerald-500 rounded-full"&gt;&lt;/div&gt; Scent: กลิ่นละมุน ไม่แสบจมูก&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;div class="w-1 h-1 bg-emerald-500 rounded-full"&gt;&lt;/div&gt; Aging Test: ผ่านการทดสอบ 24 ชม.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-900 text-white p-5 rounded-2xl flex items-center justify-between shadow-xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-amber-500 p-2 rounded-lg text-slate-900"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"&gt;&lt;/path&gt;&lt;path d="m3.3 7 8.7 5 8.7-5"&gt;&lt;/path&gt;&lt;path d="M12 22V12"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="font-bold text-sm"&gt;Packaging Strategy&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[10px] text-slate-400"&gt;หุ้มผ้า 2 ชั้น + ซีลถุง Foil ทันที&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right border-l border-slate-700 pl-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[9px] block text-slate-500 font-black uppercase"&gt;Durability&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm font-black text-amber-500"&gt;8 - 14 WEEKS&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-6 flex justify-between items-center text-[10px] text-slate-400 font-bold px-2 uppercase tracking-widest"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;© Premium Scented Stone Standard&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Ver 1.2 Stable&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showPhase(phaseIndex) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update Sidebar Buttons</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const buttons = document.querySelectorAll('.sidebar-btn');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>buttons.forEach((btn, idx) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const iconBox = btn.querySelector('.icon-box');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (idx === phaseIndex) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.add('active');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>iconBox.classList.remove('bg-slate-200', 'text-slate-500');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>iconBox.classList.add('bg-blue-600', 'text-white');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.remove('active');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>iconBox.classList.add('bg-slate-200', 'text-slate-500');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>iconBox.classList.remove('bg-blue-600', 'text-white');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update Content Visibility</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const contents = document.querySelectorAll('.phase-content');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>contents.forEach((content, idx) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (idx === phaseIndex) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>content.classList.add('active');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>content.classList.remove('active');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Scroll to content on mobile</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (window.innerWidth &lt; 768) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>window.scrollTo({ top: document.querySelector('.bg-white').offsetTop - 20, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto mb-8 text-center md:text-left">
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight uppercase">Master SOP</h1>
+        <p class="text-slate-500 font-medium">การผลิตถุงหินหอมระดับพรีเมียม (Premium Scented Stone Sachet)</p>
+    </div>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+        
+        <!-- Navigation Sidebar -->
+        <div class="md:col-span-4 flex md:flex-col overflow-x-auto md:overflow-visible gap-2 pb-4 md:pb-0" id="sidebar">
+            <button onclick="showPhase(0)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500 active" id="btn-0">
+                <div class="icon-box p-2 rounded-lg bg-blue-600 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <span class="font-bold text-sm">Phase 1: คัดสรรวัตถุดิบ</span>
+            </button>
+
+            <button onclick="showPhase(1)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-1">
+                <div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"></path><path d="M9.6 4.6A2 2 0 1 1 11 8H2"></path><path d="M12.6 19.4A2 2 0 1 0 14 16H2"></path></svg>
+                </div>
+                <span class="font-bold text-sm">Phase 2 & 3: เตรียมผิว & คุมสภาพ</span>
+            </button>
+
+            <button onclick="showPhase(2)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-2">
+                <div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>
+                </div>
+                <span class="font-bold text-sm">Phase 4 & 5: สูตรกลิ่น & Vacuum</span>
+            </button>
+
+            <button onclick="showPhase(3)" class="sidebar-btn flex-shrink-0 w-64 md:w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 text-left text-slate-500" id="btn-3">
+                <div class="icon-box p-2 rounded-lg bg-slate-200 text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <span class="font-bold text-sm">Phase 6 - 8: การบ่ม & QC</span>
+            </button>
+            
+            <div class="hidden md:block mt-8 p-6 bg-indigo-600 rounded-2xl text-white shadow-xl">
+                <h3 class="font-bold mb-2">หัวใจของพรีเมียม</h3>
+                <ul class="text-xs space-y-3 opacity-90">
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        ไม่ล้างน้ำ = โครงสร้างหินคงเดิม
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        คุมความชื้น = อายุการใช้งานนาน
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        Vacuum + Curing = ความหรูหรา
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="md:col-span-8">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 min-h-[400px]">
+                <!-- Phase 1 Content -->
+                <div id="phase-0" class="phase-content active">
+                    <div class="flex items-center justify-between mb-6 border-b pb-4">
+                        <h2 class="text-xl font-bold text-slate-800">Phase 1: คัดสรรวัตถุดิบ</h2>
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-tighter">Phase 1 of 8</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="p-4 bg-gray-50 rounded-xl border-l-4 border-blue-500">
+                                <h4 class="font-bold text-blue-800">หินภูเขาไฟ (45%)</h4>
+                                <p class="text-sm text-gray-600 font-semibold">10-20mm สีเทาดำ</p>
+                                <p class="text-[11px] text-gray-500 mt-1 italic">ดูดกลิ่นลึกและไม่อุ้มน้ำ</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl border-l-4 border-amber-500">
+                                <h4 class="font-bold text-amber-800">เซรามิกพรุน (20%)</h4>
+                                <p class="text-sm text-gray-600 font-semibold">Unglazed 100%</p>
+                                <p class="text-[11px] text-gray-500 mt-1 italic">ปล่อยกลิ่นนุ่มนวล ไม่ฉุนพุ่ง</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl border-l-4 border-emerald-500">
+                                <h4 class="font-bold text-emerald-800">แร่ Zeolite (5%)</h4>
+                                <p class="text-sm text-gray-600 font-semibold">Natural Clinoptilolite</p>
+                                <p class="text-[11px] text-gray-500 mt-1 italic">ช่วยกักเก็บ Base Note</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg flex items-start gap-3 mt-4 border border-blue-100">
+                            <svg class="text-blue-600 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div>
+                                <p class="font-bold text-blue-900 text-sm">เกณฑ์การตัดสิน (Premium Logic)</p>
+                                <p class="text-xs text-blue-700">ไม่มีกลิ่นพื้นฐาน | มีรูพรุนจริง | ไร้ความชื้นสะสม</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 & 3 Content -->
+                <div id="phase-1" class="phase-content">
+                    <div class="flex items-center justify-between mb-6 border-b pb-4">
+                        <h2 class="text-xl font-bold text-slate-800">Phase 2 & 3: เตรียมผิว & คุมสภาพ</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-4 rounded-lg border-2 border-red-200">
+                            <h4 class="font-bold text-red-800 mb-2 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                                ข้อกำหนดสำคัญ: ห้ามใช้น้ำทุกกรณี
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-3">
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-red-100">
+                                    <span class="font-bold text-gray-800 block mb-1 underline">1. การร่อน & เป่าลม</span>
+                                    ขจัดฝุ่นผงด้วย Air Blower เพื่อไม่ให้รูพรุนอุดตันจากความชื้น
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-red-100">
+                                    <span class="font-bold text-gray-800 block mb-1 underline">2. การไล่ความชื้น</span>
+                                    อบลมร้อน 90-110°C นาน 2-3 ชม. เพื่อรีดอากาศและความชื้น
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-900 text-white p-5 rounded-xl flex items-center justify-between">
+                                <div>
+                                    <p class="text-[10px] opacity-60 uppercase tracking-widest font-bold">ความชื้นสัมพัทธ์</p>
+                                    <p class="text-2xl font-black">45% - 55%</p>
+                                </div>
+                            </div>
+                            <div class="bg-orange-600 text-white p-5 rounded-xl flex items-center justify-between">
+                                <div>
+                                    <p class="text-[10px] opacity-60 uppercase tracking-widest font-bold">อุณหภูมิห้อง</p>
+                                    <p class="text-2xl font-black">24°C - 28°C</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 & 5 Content -->
+                <div id="phase-2" class="phase-content">
+                    <div class="flex items-center justify-between mb-6 border-b pb-4">
+                        <h2 class="text-xl font-bold text-slate-800">Phase 4 & 5: สูตรกลิ่น & Vacuum</h2>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-white p-4 border rounded-xl shadow-sm">
+                            <h4 class="font-bold text-gray-800 mb-4 border-b pb-2 text-sm">สัดส่วนสูตร Liquid (30%)</h4>
+                            <div class="space-y-3">
+                                <div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden flex">
+                                    <div class="h-full bg-indigo-600 w-[66%]"></div>
+                                    <div class="h-full bg-indigo-400 w-[23%]"></div>
+                                    <div class="h-full bg-indigo-300 w-[11%]"></div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-1 text-[9px] text-center font-black text-indigo-900">
+                                    <div>FRAGRANCE 20%</div>
+                                    <div>FIXATIVE 7%</div>
+                                    <div>CARRIER 3%</div>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-indigo-50 p-3 rounded-lg text-[11px] text-indigo-900 border border-indigo-100 italic">
+                                <strong>💡 Pro Tip:</strong> การเลือก Fixative โมเลกุลใหญ่คือหัวใจของการหอมนาน 8 สัปดาห์
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg border border-slate-700">
+                            <h4 class="font-bold text-blue-400 mb-3 flex items-center gap-2 text-sm">
+                                <svg class="animate-spin-slow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                Vacuum Infusion
+                            </h4>
+                            <ul class="text-[12px] space-y-3 font-medium">
+                                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px]">1</span> แรงดันลบ -0.85 ถึง -0.95 bar</li>
+                                <li class="flex items-center gap-2"><span class="w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px]">2</span> อัดกลิ่นทิ้งไว้ 30 นาที</li>
+                            </ul>
+                            <div class="mt-5 pt-3 border-t border-slate-700 text-center">
+                                <span class="text-[11px] font-black text-blue-400 uppercase tracking-widest">เพิ่มประสิทธิภาพ x3 เท่า</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 6 - 8 Content -->
+                <div id="phase-3" class="phase-content">
+                    <div class="flex items-center justify-between mb-6 border-b pb-4">
+                        <h2 class="text-xl font-bold text-slate-800">Phase 6 - 8: การบ่ม & QC</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
+                                <h4 class="font-bold text-amber-900 text-sm mb-2 uppercase">Curing (การบ่ม)</h4>
+                                <p class="text-xs text-amber-800 leading-relaxed font-medium italic">
+                                    "ห้ามเปิดถังบ่ม 10-14 วัน เพื่อให้ Base note ยึดเกาะโครงสร้างหินได้เสถียรที่สุด"
+                                </p>
+                            </div>
+                            <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                                <h4 class="font-bold text-emerald-900 text-sm mb-2 uppercase">Final QC</h4>
+                                <ul class="text-[11px] text-emerald-800 space-y-2 font-bold">
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-emerald-500 rounded-full"></div> Visual: สีสม่ำเสมอ ไร้ฝุ่นผง</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-emerald-500 rounded-full"></div> Scent: กลิ่นละมุน ไม่แสบจมูก</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-emerald-500 rounded-full"></div> Aging Test: ผ่านการทดสอบ 24 ชม.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 text-white p-5 rounded-2xl flex items-center justify-between shadow-xl">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-amber-500 p-2 rounded-lg text-slate-900">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">Packaging Strategy</p>
+                                    <p class="text-[10px] text-slate-400">หุ้มผ้า 2 ชั้น + ซีลถุง Foil ทันที</p>
+                                </div>
+                            </div>
+                            <div class="text-right border-l border-slate-700 pl-4">
+                                <span class="text-[9px] block text-slate-500 font-black uppercase">Durability</span>
+                                <span class="text-sm font-black text-amber-500">8 - 14 WEEKS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex justify-between items-center text-[10px] text-slate-400 font-bold px-2 uppercase tracking-widest">
+                <span>© Premium Scented Stone Standard</span>
+                <span>Ver 1.2 Stable</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPhase(phaseIndex) {
+            // Update Sidebar Buttons
+            const buttons = document.querySelectorAll('.sidebar-btn');
+            buttons.forEach((btn, idx) => {
+                const iconBox = btn.querySelector('.icon-box');
+                if (idx === phaseIndex) {
+                    btn.classList.add('active');
+                    iconBox.classList.remove('bg-slate-200', 'text-slate-500');
+                    iconBox.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    btn.classList.remove('active');
+                    iconBox.classList.add('bg-slate-200', 'text-slate-500');
+                    iconBox.classList.remove('bg-blue-600', 'text-white');
+                }
+            });
+
+            // Update Content Visibility
+            const contents = document.querySelectorAll('.phase-content');
+            contents.forEach((content, idx) => {
+                if (idx === phaseIndex) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+
+            // Scroll to content on mobile
+            if (window.innerWidth < 768) {
+                window.scrollTo({ top: document.querySelector('.bg-white').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
