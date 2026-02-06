@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MASTER SOP - Premium Scented Stone Sachet</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Thai:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,128 +12,151 @@
             background-color: #ffffff;
             color: #374151;
             line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
         }
+        
+        /* สไตล์สำหรับการสลับหน้า (Tabs) */
         .phase-card {
             display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease-out;
         }
         .phase-card.active {
             display: block;
-            animation: fadeIn 0.4s ease-out;
+            opacity: 1;
+            transform: translateY(0);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* ปรับปรุงเมนูนำทางให้เหมาะกับนิ้วมือ */
+        .nav-container {
+            position: sticky;
+            top: 72px; /* ต่อจาก Header */
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #f3e8ff;
         }
+        
         .nav-link {
-            position: relative;
-            transition: all 0.3s;
+            flex: 0 0 auto;
+            padding: 12px 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
         }
+        
         .nav-link.active {
             color: #7c3aed;
-            font-weight: 700;
+            border-bottom-color: #7c3aed;
+            background-color: #fefaff;
         }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #7c3aed;
-        }
-        .custom-scrollbar::-webkit-scrollbar { height: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #ddd6fe; border-radius: 10px; }
+
+        .custom-scrollbar::-webkit-scrollbar { display: none; }
+        
         .spec-box {
             border: 1px solid #f3e8ff;
             background-color: #faf5ff;
-            padding: 1.25rem;
+            padding: 1rem;
             border-radius: 1rem;
+            height: 100%;
         }
+
         .important-note {
             border-left: 4px solid #ef4444;
             background-color: #fef2f2;
             padding: 1rem;
             color: #b91c1c;
-            font-weight: 600;
+            font-weight: 700;
+            border-radius: 0.5rem;
+        }
+
+        /* ปรับแต่งส่วนประกอบต่างๆ บนมือถือ */
+        @media (max-width: 640px) {
+            h2 { font-size: 1.5rem !important; }
+            .section-title { font-size: 1.125rem !important; }
+            .card-padding { padding: 1.25rem !important; }
         }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-slate-50">
 
     <!-- Header -->
-    <header class="border-b border-purple-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
-        <div class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+    <header class="border-b border-purple-100 sticky top-0 bg-white z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div>
-                <h1 class="text-xl font-extrabold text-purple-900 tracking-tight uppercase">Master SOP</h1>
-                <p class="text-[10px] text-purple-500 font-bold uppercase tracking-[0.2em]">Scented Stone Sachet Production</p>
+                <h1 class="text-lg font-extrabold text-purple-900 tracking-tight uppercase">Master SOP</h1>
+                <p class="text-[9px] text-purple-500 font-bold uppercase tracking-[0.2em]">Scented Stone Sachet Production</p>
             </div>
-            <div class="hidden md:block text-[10px] font-bold text-purple-400 border border-purple-100 px-4 py-1.5 rounded-full bg-purple-50/50">
-                CONFIDENTIAL • AQUA GOAL LAB INTERNAL USE ONLY
+            <div class="text-[8px] font-bold text-red-500 border border-red-100 px-2 py-1 rounded bg-red-50">
+                CONFIDENTIAL
             </div>
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav class="max-w-5xl mx-auto px-6 mt-4 border-b border-purple-50 overflow-x-auto whitespace-nowrap custom-scrollbar">
-        <div class="flex gap-10">
-            <button onclick="showPhase(1)" class="nav-link active py-4 text-xs font-bold uppercase tracking-wider">PHASE 1-2: Selection & Prep</button>
-            <button onclick="showPhase(3)" class="nav-link py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">PHASE 3-4: Environment & Formula</button>
-            <button onclick="showPhase(5)" class="nav-link py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">PHASE 5-6: Infusion & Curing</button>
-            <button onclick="showPhase(7)" class="nav-link py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">PHASE 7-8: QC & Packaging</button>
+    <!-- Navigation Bar (Mobile Friendly Scroll) -->
+    <nav class="nav-container">
+        <div class="max-w-5xl mx-auto flex overflow-x-auto whitespace-nowrap custom-scrollbar px-2">
+            <button onclick="showPhase(1)" id="btn-1" class="nav-link active">PHASE 1-2</button>
+            <button onclick="showPhase(3)" id="btn-3" class="nav-link">PHASE 3-4</button>
+            <button onclick="showPhase(5)" id="btn-5" class="nav-link">PHASE 5-6</button>
+            <button onclick="showPhase(7)" id="btn-7" class="nav-link">PHASE 7-8</button>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-6 py-10">
+    <main class="max-w-5xl mx-auto px-4 py-6 mb-20">
 
         <!-- PHASE 1 & 2 -->
         <div id="p-1" class="phase-card active">
-            <div class="mb-10">
-                <h2 class="text-3xl font-black text-gray-900 mb-2">PHASE 1: การคัดสรรวัตถุดิบ</h2>
-                <p class="text-purple-500 font-medium">Raw Material Selection Strategy</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-black text-gray-900 mb-1">PHASE 1: การคัดสรรวัตถุดิบ</h2>
+                <p class="text-purple-500 text-sm font-medium">Raw Material Selection Strategy</p>
             </div>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-sm">1.1</span>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 flex items-center gap-2 section-title">
+                    <span class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center text-xs">1.1</span>
                     หลักคิดการคัดเลือก (3 Core Principles)
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="spec-box text-center">
-                        <div class="text-purple-300 font-black text-2xl mb-2">01</div>
-                        <p class="text-sm font-bold">ไม่มีกลิ่นพื้นฐาน<br>(Neutral Odor)</p>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="spec-box flex items-center gap-4">
+                        <div class="text-purple-300 font-black text-xl">01</div>
+                        <p class="text-sm font-bold">ไม่มีกลิ่นพื้นฐาน (Neutral Odor)</p>
                     </div>
-                    <div class="spec-box text-center">
-                        <div class="text-purple-300 font-black text-2xl mb-2">02</div>
-                        <p class="text-sm font-bold">มีโครงสร้างพรุนจริง<br>(Functional Porosity)</p>
+                    <div class="spec-box flex items-center gap-4">
+                        <div class="text-purple-300 font-black text-xl">02</div>
+                        <p class="text-sm font-bold">มีโครงสร้างพรุนจริง (Functional Porosity)</p>
                     </div>
-                    <div class="spec-box text-center">
-                        <div class="text-purple-300 font-black text-2xl mb-2">03</div>
+                    <div class="spec-box flex items-center gap-4">
+                        <div class="text-purple-300 font-black text-xl">03</div>
                         <p class="text-sm font-bold">ไม่มีความชื้นสะสมแฝง</p>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-sm">1.2</span>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 flex items-center gap-2 section-title">
+                    <span class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center text-xs">1.2</span>
                     วัตถุดิบฐานดูดกลิ่น (Solid Base)
                 </h3>
-                <div class="space-y-6">
+                <div class="space-y-4">
                     <!-- A -->
-                    <div class="p-6 border border-gray-100 rounded-2xl bg-white shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">A) หินภูเขาไฟ (Volcanic Lava Stone)</h4>
-                                <ul class="text-xs space-y-2 text-gray-600">
-                                    <li><strong>ขนาด:</strong> 10–20 mm</li>
-                                    <li><strong>สี:</strong> เทาเข้ม–ดำ (หลีกเลี่ยงแดงจัด)</li>
-                                    <li><strong>ผิว:</strong> ด้าน / รูพรุนเปิด</li>
-                                    <li><strong>ความหนาแน่น:</strong> ต่ำ (เบาในมือ)</li>
-                                    <li><strong>ข้อห้าม:</strong> ไม่มีการเคลือบ / ไม่ย้อมสี</li>
-                                </ul>
-                            </div>
-                            <div class="md:w-1/2 border-l border-gray-50 md:pl-6">
-                                <h4 class="font-bold text-purple-500 mb-3 text-[10px] uppercase">เหตุผลทางเทคนิค</h4>
+                    <div class="card-padding p-5 border border-gray-100 rounded-2xl bg-white shadow-sm">
+                        <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide border-b pb-2">A) หินภูเขาไฟ (Volcanic Lava Stone)</h4>
+                        <div class="grid grid-cols-1 gap-4">
+                            <ul class="text-xs space-y-2 text-gray-600 bg-slate-50 p-3 rounded-lg">
+                                <li><strong>ขนาด:</strong> 10–20 mm</li>
+                                <li><strong>สี:</strong> เทาเข้ม–ดำ (หลีกเลี่ยงแดงจัด)</li>
+                                <li><strong>ผิว:</strong> ด้าน / รูพรุนเปิด</li>
+                                <li><strong>ความหนาแน่น:</strong> ต่ำ (เบาในมือ)</li>
+                                <li><strong>ข้อห้าม:</strong> ไม่มีการเคลือบ / ไม่ย้อมสี</li>
+                            </ul>
+                            <div>
+                                <h4 class="font-bold text-purple-500 mb-1 text-[10px] uppercase">เหตุผลทางเทคนิค</h4>
                                 <p class="text-xs text-gray-500 leading-relaxed">
                                     รูพรุนเปิดช่วยในการดูดกลิ่นได้ลึกถึงแกนกลาง และเนื้อหินไม่อุ้มน้ำทำให้ควบคุมความชื้นสะสมได้ง่ายกว่าวัสดุอื่น
                                 </p>
@@ -141,88 +164,78 @@
                         </div>
                     </div>
                     <!-- B -->
-                    <div class="p-6 border border-gray-100 rounded-2xl bg-white shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">B) ดินเผา / เซรามิกพรุน (Unglazed Porous Ceramic)</h4>
-                                <ul class="text-xs space-y-2 text-gray-600">
-                                    <li><strong>สเปค:</strong> Unglazed 100% (ไม่เคลือบเงา)</li>
-                                    <li><strong>อุณหภูมิเผา:</strong> 900–1100°C</li>
-                                    <li><strong>Water absorption:</strong> >15%</li>
-                                    <li><strong>ผิวสัมผัส:</strong> ด้าน ไม่เงา</li>
-                                </ul>
-                            </div>
-                            <div class="md:w-1/2 border-l border-gray-50 md:pl-6">
-                                <h4 class="font-bold text-purple-500 mb-3 text-[10px] uppercase">บทบาทสำคัญ</h4>
+                    <div class="card-padding p-5 border border-gray-100 rounded-2xl bg-white shadow-sm">
+                        <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide border-b pb-2">B) ดินเผา / เซรามิกพรุน (Unglazed Porous Ceramic)</h4>
+                        <div class="grid grid-cols-1 gap-4">
+                            <ul class="text-xs space-y-2 text-gray-600 bg-slate-50 p-3 rounded-lg">
+                                <li><strong>สเปค:</strong> Unglazed 100% (ไม่เคลือบเงา)</li>
+                                <li><strong>อุณหภูมิเผา:</strong> 900–1100°C</li>
+                                <li><strong>Water absorption:</strong> >15%</li>
+                                <li><strong>ผิวสัมผัส:</strong> ด้าน ไม่เงา</li>
+                            </ul>
+                            <div>
+                                <h4 class="font-bold text-purple-500 mb-1 text-[10px] uppercase">บทบาทสำคัญ</h4>
                                 <p class="text-xs text-gray-500 leading-relaxed">
-                                    ทำหน้าที่ควบคุมการปล่อยกลิ่นให้มีลักษณะ “นุ่มและสม่ำเสมอ” ช่วยลดอาการกลิ่นฟุ้งกระจายรุนแรงในช่วงแรกที่เปิดใช้งาน
+                                    ทำหน้าที่ควบคุมการปล่อยกลิ่นให้มีลักษณะ “นุ่มและสม่ำเสมอ” ช่วยลดอาการกลิ่นฟุ้งกระจายรุนแรงในช่วงแรก
                                 </p>
                             </div>
                         </div>
                     </div>
                     <!-- C -->
-                    <div class="p-6 border border-gray-100 rounded-2xl bg-white shadow-sm">
-                        <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">C) หินแร่ Zeolite (เสริมพรีเมียม)</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="card-padding p-5 border border-gray-100 rounded-2xl bg-white shadow-sm">
+                        <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">C) หินแร่ Zeolite (เสริมพรีเมียม)</h4>
+                        <div class="space-y-2 text-xs text-gray-600">
                             <p><strong>สเปค:</strong> Natural clinoptilolite | ขนาด 5–10 mm | Moisture content <5%</p>
-                            <p><strong>บทบาท:</strong> เน้นการเก็บกักโมเลกุล Base Note และช่วยยืดอายุช่วงท้ายของกลิ่น (Dry down) ให้ยาวนานขึ้น</p>
+                            <p class="text-purple-600 font-medium italic">เน้นการเก็บกักโมเลกุล Base Note และช่วยยืดอายุช่วงท้ายของกลิ่นให้ยาวนานขึ้น</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div class="my-16 border-t border-purple-50"></div>
+            <div class="my-10 border-t border-purple-100"></div>
 
-            <section class="mb-12">
-                <h2 class="text-3xl font-black text-gray-900 mb-2">PHASE 2: การเตรียมวัตถุดิบ</h2>
-                <p class="text-purple-500 font-medium mb-8">Dry Preparation – NO WATER</p>
+            <section class="mb-10">
+                <h2 class="text-2xl font-black text-gray-900 mb-1">PHASE 2: การเตรียมวัตถุดิบ</h2>
+                <p class="text-purple-500 text-sm font-medium mb-6">Dry Preparation – NO WATER</p>
                 
-                <div class="important-note mb-10 text-center">
+                <div class="important-note mb-8 text-center text-sm">
                     ❗ห้ามใช้น้ำทุกกรณีในการทำความสะอาด
                 </div>
 
-                <div class="space-y-10">
-                    <div>
-                        <h3 class="text-md font-bold text-purple-800 mb-4 tracking-wide">2.1 การคัดแยกเชิงกล (Mechanical Cleaning)</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="p-5 border border-purple-100 rounded-xl">
-                                <p class="font-bold text-xs uppercase text-purple-400 mb-2">STEP 1: ร่อน (Sieving)</p>
-                                <p class="text-xs mb-2">ใช้ตะแกรง 2 ชั้น เพื่อคัดแยกสิ่งไม่พึงประสงค์:</p>
-                                <ul class="text-xs list-disc pl-4 space-y-1 text-gray-500">
-                                    <li>ฝุ่นผงขนาดเล็ก</li>
-                                    <li>เศษหินที่แตกหัก</li>
-                                    <li>ชิ้นส่วนที่ขนาดไม่สม่ำเสมอตามเกณฑ์</li>
+                <div class="space-y-6">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-purple-50">
+                        <h3 class="text-sm font-bold text-purple-800 mb-4 uppercase tracking-wide">2.1 การคัดแยกเชิงกล (Mechanical Cleaning)</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 border-l-2 border-purple-200 bg-purple-50/30">
+                                <p class="font-bold text-[10px] uppercase text-purple-500 mb-1">STEP 1: ร่อน (Sieving)</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 text-gray-600">
+                                    <li>ฝุ่นผงขนาดเล็ก / เศษหินที่แตกหัก</li>
+                                    <li>ชิ้นส่วนที่ขนาดไม่สม่ำเสมอ</li>
                                 </ul>
                             </div>
-                            <div class="p-5 border border-purple-100 rounded-xl">
-                                <p class="font-bold text-xs uppercase text-purple-400 mb-2">STEP 2: เป่าลม (Air Blowing)</p>
-                                <p class="text-xs text-gray-500">ใช้ Blower หรือ Air Gun แรงดันสูงเป่าจนฝุ่นที่เกาะตามผิวและรูพรุนหลุดออกทั้งหมด โดยต้องทำบนถาดสแตนเลสสะอาดเท่านั้น</p>
+                            <div class="p-4 border-l-2 border-purple-200 bg-purple-50/30">
+                                <p class="font-bold text-[10px] uppercase text-purple-500 mb-1">STEP 2: เป่าลม (Air Blowing)</p>
+                                <p class="text-xs text-gray-600 italic">ใช้ Air Gun แรงดันสูงเป่าจนฝุ่นที่เกาะตามรูพรุนหลุดออกทั้งหมด</p>
                             </div>
-                        </div>
-                        <div class="mt-4 p-4 bg-gray-50 rounded-lg text-center text-xs font-bold italic">
-                            📌 เป้าหมาย: “หินสะอาดแบบแห้ง ไม่มีฝุ่น ไม่มีกลิ่นอับ และปลอดความชื้น”
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="text-md font-bold text-purple-800 mb-4 tracking-wide">2.2 การไล่ความชื้น (Dry Heat Conditioning)</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-                            <div class="col-span-1">
-                                <p class="font-bold mb-2 uppercase text-gray-400">วัตถุประสงค์</p>
-                                <p class="text-gray-500">ไล่ความชื้นแฝง, ฆ่าเชื้อระดับพื้นฐาน, เปิดรูพรุนให้พร้อมรับกลิ่นสูงสุด</p>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-purple-50">
+                        <h3 class="text-sm font-bold text-purple-800 mb-4 uppercase tracking-wide">2.2 การไล่ความชื้น (Dry Heat Conditioning)</h3>
+                        <div class="space-y-4 text-xs">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-slate-50 p-3 rounded-lg">
+                                    <p class="font-bold mb-1 text-gray-400 text-[10px] uppercase">วิธีการอบ</p>
+                                    <p class="text-gray-600 font-bold">90–110°C / 2–3 ชม.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg">
+                                    <p class="font-bold mb-1 text-gray-400 text-[10px] uppercase">อุปกรณ์</p>
+                                    <p class="text-gray-600">Convection Oven</p>
+                                </div>
                             </div>
-                            <div class="col-span-1 border-l border-gray-100 pl-6">
-                                <p class="font-bold mb-2 uppercase text-gray-400">วิธีการอบ</p>
-                                <ul class="text-gray-500 space-y-1">
-                                    <li>เตาอบลมร้อน (Convection Oven)</li>
-                                    <li>อุณหภูมิ: 90–110°C</li>
-                                    <li>เวลา: 2–3 ชั่วโมง</li>
-                                    <li>ใช้ถาด Perforated (ลมผ่านได้)</li>
-                                </ul>
-                            </div>
-                            <div class="col-span-1 border-l border-gray-100 pl-6">
-                                <p class="font-bold mb-2 uppercase text-gray-400">การจัดการหลังอบ</p>
-                                <p class="text-gray-500 italic">พักให้เย็นในห้องที่มีค่า RH <50% จนหินอุณหภูมิต่ำลงถึงอุณหภูมิห้อง แล้วจึงทำการจัดเก็บ (ห้ามปิดฝาภาชนะทันทีในขณะที่หินยังอุ่นเพื่อป้องกันการเกิด Condensation ไอน้ำควบแน่น)</p>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <p class="font-bold mb-1 text-purple-500 text-[10px] uppercase">การจัดการหลังอบ</p>
+                                <p class="text-gray-600 leading-relaxed italic">พักให้เย็นในห้องที่มีค่า RH <50% จนถึงอุณหภูมิห้อง ห้ามปิดฝาทันทีเพื่อป้องกันไอน้ำควบแน่น</p>
                             </div>
                         </div>
                     </div>
@@ -232,63 +245,72 @@
 
         <!-- PHASE 3 & 4 -->
         <div id="p-3" class="phase-card">
-            <div class="mb-10">
-                <h2 class="text-3xl font-black text-gray-900 mb-2 uppercase">PHASE 3 & 4: สภาวะแวดล้อมและสูตรกลิ่น</h2>
-                <p class="text-purple-500 font-medium italic">Environmental Control & Premium Formulation</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-black text-gray-900 mb-1 uppercase">PHASE 3 & 4</h2>
+                <p class="text-purple-500 text-sm font-medium">Environmental Control & Formulation</p>
             </div>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 3: การควบคุมสภาพแวดล้อม</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-6 border border-purple-50 rounded-2xl">
-                          <h4 class="text-xs font-bold text-purple-400 mb-3 uppercase tracking-widest">การจัดเก็บวัตถุดิบ หิน ที่ทำความสะอาดแล้ว (Storage Control)</h4>
-                        <ul class="text-sm space-y-3 font-medium text-gray-600">
-                            <li>• ใช้ภาชนะ HDPE หรือ Stainless เท่านั้นและปิดฝาแน่นสนิท</li>
-                            <li>• ต้องใส่ Silica Gel เกรดอาหาร/น้ำหอมทุกถัง</li>
-                            <li>• จำกัดการเปิดฝา : ไม่เกิน 5 นาที/ครั้ง เพื่อลดการสะสมความชื้นใหม่</li>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 3: สภาพแวดล้อม</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-5 border border-purple-100 rounded-2xl bg-white shadow-sm">
+                        <h4 class="text-[10px] font-bold text-purple-400 mb-3 uppercase tracking-widest">การจัดเก็บหินสะอาด (Storage)</h4>
+                        <ul class="text-xs space-y-3 font-medium text-gray-600">
+                            <li class="flex items-start gap-2"><span>•</span> ภาชนะ HDPE/Stainless ปิดฝาสนิท</li>
+                            <li class="flex items-start gap-2"><span>•</span> ต้องใส่ Silica Gel ทุกถัง</li>
+                            <li class="flex items-start gap-2"><span>•</span> เปิดฝาไม่เกิน 5 นาที/ครั้ง</li>
                         </ul>
                     </div>
-                    <div class="p-6 border border-purple-50 rounded-2xl">
-                          <h4 class="text-xs font-bold text-purple-400 mb-3 uppercase tracking-widest"> ในห้องผลิต (Critical Area)</h4>
-                        <ul class="text-sm space-y-3 font-medium">
-                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>RH (ความชื้นสัมพัทธ์):</span> <span class="text-purple-600">45–55%</span></li>
-                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Temperature:</span> <span class="text-purple-600">24–28°C</span></li>
-                            <li class="text-xs text-gray-400 italic font-normal">* ต้องมั่นใจเรื่องค่าความชื้นของห้องให้อยู่ในเกณฑ์ </li>
-                        </ul>
+                    <div class="p-5 border border-purple-100 rounded-2xl bg-purple-900 text-white">
+                        <h4 class="text-[10px] font-bold text-purple-300 mb-3 uppercase tracking-widest">ในห้องผลิต (Critical Area)</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center py-1 border-b border-purple-800">
+                                <span class="text-xs">RH (ความชื้น):</span>
+                                <span class="text-lg font-bold">45–55%</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-xs">Temp:</span>
+                                <span class="text-lg font-bold">24–28°C</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 4: การเตรียมสูตรกลิ่น (Liquid Phase)</h3>
-                <div class="p-8 border-2 border-purple-50 rounded-[2rem] bg-purple-50/5">
-                    <h4 class="text-sm font-bold text-gray-900 mb-6 uppercase tracking-tighter">4.1 โครงสร้างสูตร 100% Total Weight (ปรับอัตราส่วน Part Liquid ได้ แต่ไม่ควรเกิน 40% )</h4>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 4: สูตรกลิ่น (Liquid Phase)</h3>
+                <div class="p-6 border-2 border-purple-50 rounded-2xl bg-white shadow-sm">
+                    <h4 class="text-xs font-bold text-gray-900 mb-6 uppercase leading-relaxed text-center italic">4.1 โครงสร้างสูตร 100% Total Weight</h4>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-8">
                         <div>
-                            <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest">Part A: Solid Base (70%)</p>
-                            <div class="space-y-3 text-xs">
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>Lava Stone</span> <span>45%</span></div>
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>Porous Ceramic</span> <span>20%</span></div>
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>Zeolite</span> <span>5%</span></div>
+                            <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest flex items-center gap-2">
+                                <span class="w-2 h-2 bg-purple-400 rounded-full"></span> Part A: Solid Base (70%)
+                            </p>
+                            <div class="space-y-2 text-xs">
+                                <div class="flex justify-between p-2 bg-slate-50 rounded"><span>Lava Stone</span> <span class="font-bold">45%</span></div>
+                                <div class="flex justify-between p-2 bg-slate-50 rounded"><span>Porous Ceramic</span> <span class="font-bold">20%</span></div>
+                                <div class="flex justify-between p-2 bg-slate-50 rounded"><span>Zeolite</span> <span class="font-bold">5%</span></div>
                             </div>
                         </div>
                         <div>
-                            <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest">Part B: Liquid Phase (30%)</p>
-                            <div class="space-y-3 text-xs">
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>Fragrance / EO Blend</span> <span>18–20%</span></div>
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>Fixative (IFRA Standard)</span> <span>5–7%</span></div>
-                                <div class="flex justify-between border-b border-purple-100 pb-2"><span>DPG / Carrier</span> <span>3–5%</span></div>
+                            <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest flex items-center gap-2">
+                                <span class="w-2 h-2 bg-purple-400 rounded-full"></span> Part B: Liquid Phase (30%)
+                            </p>
+                            <div class="space-y-2 text-xs">
+                                <div class="flex justify-between p-2 bg-purple-50 rounded"><span>Fragrance / EO Blend</span> <span class="font-bold text-purple-700">18–20%</span></div>
+                                <div class="flex justify-between p-2 bg-purple-50 rounded"><span>Fixative (IFRA)</span> <span class="font-bold text-purple-700">5–7%</span></div>
+                                <div class="flex justify-between p-2 bg-purple-50 rounded"><span>DPG / Carrier</span> <span class="font-bold text-purple-700">3–5%</span></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-10 pt-8 border-t border-purple-100">
-                        <h4 class="text-xs font-bold text-gray-900 mb-4 italic underline">4.2 หลักการผสมกลิ่น</h4>
-                        <ul class="text-xs space-y-3 text-gray-500">
-                            <li>• ผสม Liquid Phase ทุกตัวให้เข้าเป็นเนื้อเดียวกันก่อน</li>
-                            <li>• <strong>Aging Liquid:</strong> ควรพักสูตรที่ผสมแล้ว 12–24 ชม. เพื่อให้โมเลกุลน้ำหอมและ Fixative เรียงตัวนิ่ง</li>
-                            <li>• <strong>QC Check:</strong> ต้องตรวจกลิ่นก่อนผลิตจริง (ต้องไม่แสบจมูก, ไม่แยกชั้น, กลิ่น Base ต้องชัดเจน)</li>
+                    <div class="mt-8 pt-6 border-t border-purple-100">
+                        <h4 class="text-[10px] font-bold text-gray-900 mb-3 uppercase underline">4.2 หลักการผสมกลิ่น</h4>
+                        <ul class="text-[11px] space-y-3 text-gray-500 italic">
+                            <li>• ผสม Liquid ทั้งหมดให้เข้ากันก่อน</li>
+                            <li>• <strong>Aging:</strong> พักสูตร 12–24 ชม. ก่อนใช้</li>
+                            <li>• <strong>QC:</strong> ต้องตรวจกลิ่น (ไม่แสบจมูก/ไม่แยกชั้น)</li>
                         </ul>
                     </div>
                 </div>
@@ -297,70 +319,57 @@
 
         <!-- PHASE 5 & 6 -->
         <div id="p-5" class="phase-card">
-            <div class="mb-10">
-                <h2 class="text-3xl font-black text-gray-900 mb-2 uppercase">PHASE 5 & 6: การผสมและบ่มกลิ่น</h2>
-                <p class="text-purple-500 font-medium italic">Infusion Process & Curing Protocol</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-black text-gray-900 mb-1 uppercase">PHASE 5 & 6</h2>
+                <p class="text-purple-500 text-sm font-medium">Infusion & Curing Protocol</p>
             </div>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 5: กระบวนการผสมและดูดซับกลิ่น</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-6 border border-gray-100 rounded-2xl">
-                        <h4 class="text-xs font-bold text-gray-400 mb-4 uppercase">5.1 การผสมขั้นต้น</h4>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 5: กระบวนการผสม</h3>
+                <div class="space-y-4">
+                    <div class="p-5 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                        <h4 class="text-[10px] font-bold text-gray-400 mb-3 uppercase">5.1 การผสมขั้นต้น</h4>
                         <ol class="text-xs space-y-3 list-decimal pl-4 text-gray-600">
-                            <li>ใส่ Solid Base (หินที่เตรียมไว้) ลงในถังผสม</li>
-                            <li>ค่อย ๆ เติม Liquid Phase ที่ผ่านการบ่มแล้วลงไป</li>
-                            <li>คลุกเคล้าช้า ๆ อย่างเบามือ (ห้ามกระแทกเพื่อป้องกันหินแตกเป็นฝุ่น)</li>
-                            <li>สังเกตให้ของเหลวเคลือบผิวหินทุกชิ้นและเริ่มถูกดูดซึม</li>
+                            <li>ใส่หิน Solid Base ในถังผสม</li>
+                            <li>ค่อย ๆ เติม Liquid Phase ที่บ่มแล้ว</li>
+                            <li>คลุกเคล้าเบามือ (ห้ามกระแทก)</li>
+                            <li>สังเกตให้ของเหลวซึมเข้าเนื้อหิน</li>
                         </ol>
-                        <div class="mt-6 p-3 bg-purple-50 text-purple-600 text-[10px] font-bold text-center rounded-lg">
-                            📌 จุดสังเกตุ : กลิ่นซึมเข้าเนื้อ ไม่ใช่แค่แฉะที่ผิว
-                        </div>
                     </div>
-                    <div class="p-6 border-2 border-purple-100 rounded-2xl bg-purple-50/10">
-                        <h4 class="text-xs font-bold text-purple-600 mb-4 uppercase flex items-center gap-2">
-                            <span class="inline-block w-2 h-2 bg-purple-600 rounded-full animate-pulse"></span>
-                            5.2 Vacuum Infusion การดูดอากาศ
+                    <div class="p-5 border-2 border-purple-200 rounded-2xl bg-purple-50/50">
+                        <h4 class="text-[10px] font-bold text-purple-600 mb-3 uppercase flex items-center gap-2">
+                            <span class="w-2 h-2 bg-purple-600 rounded-full animate-pulse"></span>
+                            5.2 Vacuum Infusion
                         </h4>
                         <div class="text-xs space-y-4">
-                            <div>
-                                <p class="font-bold text-gray-500 mb-1">อุปกรณ์:</p>
-                                <p>Vacuum Chamber / Vacuum Pump (กำลังส่ง ≥1 HP)</p>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-500 mb-1">ขั้นตอน:</p>
-                                <ul class="space-y-1 text-gray-400">
-                                    <li>- นำถังหินเข้า ตู้/หม้อ ดูดอากาศ</li>
-                                    <li>- ดูดอากาศจนถึงระดับ -0.85 ถึง -0.95 bar</li>
-                                    <li>- รักษาระดับสุญญากาศค้างไว้ 30 นาที</li>
-                                    <li>- ปล่อยแรงดันคืนสู่ปกติ "อย่างช้า ๆ"</li>
+                            <div class="bg-white/80 p-3 rounded-xl border border-purple-100">
+                                <p class="font-bold text-gray-600 mb-2">ขั้นตอนสำคัญ:</p>
+                                <ul class="space-y-2 text-gray-500">
+                                    <li class="flex gap-2"><span>-</span> ดูดอากาศระดับ -0.85 ถึง -0.95 bar</li>
+                                    <li class="flex gap-2"><span>-</span> ค้างไว้ 30 นาที</li>
+                                    <li class="flex gap-2 text-purple-700 font-bold italic underline"><span>*</span> ปล่อยแรงดันคืน "อย่างช้า ๆ"</li>
                                 </ul>
-                            </div>
-                            <div class="pt-2 border-t border-purple-100 font-bold text-purple-800">
-                                Result: กลิ่นเข้าเนื้อลึก, ลดการระเหยเร็ว, อายุหอม x2–x3
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 6: Curing Time (การบ่มกลิ่น)</h3>
-                <div class="p-8 border border-gray-100 rounded-3xl space-y-8">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-                        <div>
-                            <p class="font-black text-purple-400 mb-2 uppercase">วิธีการบ่ม</p>
-                            <p class="text-gray-500 leading-relaxed">ปิดฝาถังให้สนิท 100% เก็บในห้องมืดที่แห้งและเย็น ห้ามเปิดเช็คหรือรบกวนหินในระหว่างกระบวนการบ่มโดยเด็ดขาด</p>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 6: Curing Time</h3>
+                <div class="bg-purple-900 text-white p-6 rounded-3xl space-y-6 shadow-xl">
+                    <div class="space-y-4">
+                        <div class="border-b border-purple-800 pb-4">
+                            <p class="text-[10px] font-black text-purple-300 mb-1 uppercase">วิธีการบ่ม</p>
+                            <p class="text-xs leading-relaxed">ปิดฝาถัง 100% เก็บในห้องมืดที่แห้งและเย็น ห้ามเปิดเช็คระหว่างบ่ม</p>
+                        </div>
+                        <div class="border-b border-purple-800 pb-4">
+                            <p class="text-[10px] font-black text-purple-300 mb-1 uppercase">ระยะเวลา (Standard)</p>
+                            <p class="text-xl font-black text-purple-100">10 – 14 วัน</p>
                         </div>
                         <div>
-                            <p class="font-black text-purple-400 mb-2 uppercase">ระยะเวลา (Standard)</p>
-                            <ul class="space-y-1 font-bold">
-                                <li>Standard Time : 10–14 วัน</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-black text-purple-400 mb-2 uppercase">กลไกเคมี (สิ่งที่เกิดขึ้น)</p>
-                            <p class="text-gray-500">Top note ส่วนเกินจะค่อย ๆ เสถียรขึ้น กลิ่นจะเริ่ม “นิ่ง” และโมเลกุล Base note จะยึดเกาะโครงสร้างพรุนของหินได้อย่างสมบูรณ์</p>
+                            <p class="text-[10px] font-black text-purple-300 mb-1 uppercase">ผลลัพธ์</p>
+                            <p class="text-xs text-purple-200 italic">โมเลกุล Base note จะยึดเกาะโครงสร้างพรุนได้อย่างสมบูรณ์</p>
                         </div>
                     </div>
                 </div>
@@ -369,60 +378,52 @@
 
         <!-- PHASE 7 & 8 -->
         <div id="p-7" class="phase-card">
-            <div class="mb-10">
-                <h2 class="text-3xl font-black text-gray-900 mb-2 uppercase">PHASE 7 & 8: QC & การบรรจุภัณฑ์</h2>
-                <p class="text-purple-500 font-medium italic">Final Quality Check & Packaging SOP</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-black text-gray-900 mb-1 uppercase">PHASE 7 & 8</h2>
+                <p class="text-purple-500 text-sm font-medium">QC & Packaging SOP</p>
             </div>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 7: Quality Control (QC)</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 border border-purple-50 rounded-2xl">
-                        <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest">7.1 Visual Check</p>
-                        <ul class="text-xs space-y-2 text-gray-600 font-medium">
-                            <li>• ต้องไม่มีฝุ่นผงตกค้าง</li>
-                            <li>• ผิวหินต้องแห้ง สัมผัสแล้วไม่มีคราบแฉะ</li>
-                            <li>• สีของหินต้องสม่ำเสมอทั่วกันทุกชิ้น</li>
-                        </ul>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 7: Quality Control</h3>
+                <div class="space-y-3">
+                    <div class="p-4 bg-white border border-purple-50 rounded-xl flex items-center gap-4">
+                        <div class="bg-purple-100 p-2 rounded-lg text-purple-600 font-bold text-[10px]">7.1</div>
+                        <p class="text-xs font-bold text-gray-700">Visual: ไม่มีฝุ่น, หินแห้ง, สีสม่ำเสมอ</p>
                     </div>
-                    <div class="p-6 border border-purple-50 rounded-2xl">
-                        <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest">7.2 QC Check</p>
-                        <ul class="text-xs space-y-2 text-gray-600 font-medium">
-                            <li>• กลิ่นต้องนิ่ง ไม่พุ่งแหลม</li>
-                            <li>• ไม่มีกลิ่นอับหรือกลิ่นหินดิบแฝง</li>
-                            <li>• กลิ่นต้องไม่ผิดเพี้ยนจากตัวอย่างอ้างอิง</li>
-                        </ul>
+                    <div class="p-4 bg-white border border-purple-50 rounded-xl flex items-center gap-4">
+                        <div class="bg-purple-100 p-2 rounded-lg text-purple-600 font-bold text-[10px]">7.2</div>
+                        <p class="text-xs font-bold text-gray-700">Scent: กลิ่นนิ่ง, ไม่แหลม, ไม่เหม็นอับ</p>
                     </div>
-                    <div class="p-6 border border-purple-50 rounded-2xl">
-                        <p class="text-[10px] font-black text-purple-400 mb-4 uppercase tracking-widest">7.3 Performance Test</p>
-                        <p class="text-xs text-gray-600">ทดสอบสุ่มตัวอย่างวางในพื้นที่ปิดขนาดเล็กเป็นเวลา 24 ชม. กลิ่นต้องกระจายตัวชัดเจนและไม่จางหายเร็วกว่ากำหนด</p>
+                    <div class="p-4 bg-white border border-purple-50 rounded-xl flex items-center gap-4">
+                        <div class="bg-purple-100 p-2 rounded-lg text-purple-600 font-bold text-[10px]">7.3</div>
+                        <p class="text-xs text-gray-500">Performance: สุ่มวาง 24 ชม. กลิ่นต้องกระจายดี</p>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-12">
-                <h3 class="text-lg font-bold text-purple-800 mb-6">PHASE 8: การบรรจุ (Packaging)</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <h4 class="font-bold text-gray-900 mb-4">สเปคถุงผ้าหอม</h4>
-                        <ul class="text-xs space-y-3 text-gray-500">
-                            <li><strong>วัสดุ:</strong> ต้องเป็นผ้าหนา 2 ชั้น เพื่อชะลอการระเหย</li>
-                            <li><strong>คุณสมบัติ:</strong> ต้องระบายกลิ่นได้ช้าและสม่ำเสมอ</li>
-                            <li><strong>ข้อห้าม:</strong> ห้ามใช้ผ้าที่เคลือบสารเคมีหรือสารกันน้ำ</li>
+            <section class="mb-10">
+                <h3 class="text-lg font-bold text-purple-800 mb-4 border-l-4 border-purple-500 pl-3">PHASE 8: การบรรจุ</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="font-bold text-gray-900 mb-3 text-xs uppercase">สเปคถุงผ้าหอม</h4>
+                        <ul class="text-xs space-y-2 text-gray-600 list-disc pl-4">
+                            <li>ต้องเป็นผ้าหนา 2 ชั้น (ชะลอการระเหย)</li>
+                            <li>ระบายกลิ่นช้าและสม่ำเสมอ</li>
+                            <li class="text-red-500 font-bold underline">ห้ามใช้ผ้าที่เคลือบสารกันน้ำ</li>
                         </ul>
                     </div>
-                    <div class="p-6 bg-purple-50/30 rounded-2xl border border-purple-100">
-                        <h4 class="font-bold text-purple-900 mb-4 italic">ก่อนการจำหน่าย</h4>
+                    <div class="p-5 bg-purple-50 rounded-2xl border-2 border-purple-200">
+                        <h4 class="font-bold text-purple-900 mb-2 text-xs italic">ก่อนการจำหน่าย (Foil Pouch)</h4>
                         <p class="text-xs text-purple-700 leading-relaxed font-medium">
-                            หินที่บรรจุในถุงผ้าแล้ว ต้องถูกนำลงซองฟอยล์ (Foil Pouch) และทำการซีลปิดสนิท (Hermetic Seal) เพื่อป้องกันการสูญเสียกลิ่นระหว่างรอการจัดส่งถึงมือลูกค้า
+                            หินบรรจุถุงผ้าแล้ว ต้องลงซองฟอยล์และซีลปิดสนิท (Hermetic Seal) ทันทีเพื่อป้องกันการสูญเสียกลิ่น
                         </p>
                     </div>
                 </div>
             </section>
 
-            <div class="mt-20 p-10 text-center border-t border-purple-100">
-                <p class="text-2xl font-black text-purple-900 mb-2 italic">ลิขสิทธ์ อควา โกล แลบบอราทอรีส์</p>
-                <p class="text-xs text-gray-400 font-bold uppercase tracking-[0.3em]">End of Master Standard Operating Procedure</p>
+            <div class="mt-16 py-8 text-center">
+                <p class="text-xl font-black text-purple-900 mb-1 italic">ลิขสิทธ์ อควา โกล แลบบอราทอรีส์</p>
+                <p class="text-[8px] text-gray-400 font-bold uppercase tracking-[0.3em]">End of Master SOP</p>
             </div>
         </div>
 
@@ -433,22 +434,26 @@
             // Update Navigation Menu
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach((link) => {
-                if (link.getAttribute('onclick') === `showPhase(${phase})`) {
+                if (link.id === `btn-${phase}`) {
                     link.classList.add('active');
-                    link.classList.remove('text-gray-400');
                 } else {
                     link.classList.remove('active');
-                    link.classList.add('text-gray-400');
                 }
             });
 
             // Update Phase Content visibility
             const cards = document.querySelectorAll('.phase-card');
             cards.forEach(card => card.classList.remove('active'));
-            document.getElementById(`p-${phase}`).classList.add('active');
             
-            // Scroll to top smoothly
+            const target = document.getElementById(`p-${phase}`);
+            target.classList.add('active');
+            
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Horizontal scroll nav into view
+            const activeBtn = document.getElementById(`btn-${phase}`);
+            activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
     </script>
 </body>
